@@ -1,21 +1,7 @@
-#[allow(dead_code)]
-
-struct Cash {
-    currency: String,
-    amount: i64,
-}
-
-impl Cash {
-    fn get_amount(&self) -> String {
-        format!("{}", self.amount)
-    }
-}
-
+mod helpers;
+// use helpers::create::create_cash;
 
 fn main() {
-    let my_new_obj = Cash {
-        currency: String::from("dolari"),
-        amount: 570,
-    };
-    println!("main output: {}", my_new_obj.get_amount());
+    let cash = helpers::create::create_cash("usd", 15000);
+    println!("{} {}", cash.amount, cash.currency)
 }
