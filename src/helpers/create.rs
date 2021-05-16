@@ -7,6 +7,8 @@ pub trait CashOps {
     fn create_cash(currency: &str, amount: i64) -> Self;
     fn add(&self, amount: i64) -> Self;
     fn subtract(&self, amount: i64) -> Self;
+    fn multiply(&self, amount: i64) -> Self;
+    fn divide(&self, amount: i64) -> Self;
 }
 
 impl CashOps for Cash {
@@ -16,6 +18,7 @@ impl CashOps for Cash {
             amount: amount,
         }
     }
+
     fn add(&self, amount: i64) -> Self {
         let new_amount: i64 = &self.amount + amount;
         Self {
@@ -25,6 +28,20 @@ impl CashOps for Cash {
     }
     fn subtract(&self, amount: i64) -> Self {
         let new_amount: i64 = &self.amount - amount;
+        Self {
+            currency: String::from(&self.currency),
+            amount: if new_amount < 0 { 0 } else { new_amount },
+        }
+    }
+    fn multiply(&self, amount: i64) -> Self {
+        let new_amount: i64 = &self.amount * amount;
+        Self {
+            currency: String::from(&self.currency),
+            amount: new_amount,
+        }
+    }
+    fn divide(&self, amount: i64) -> Self {
+        let new_amount: i64 = &self.amount / amount;
         Self {
             currency: String::from(&self.currency),
             amount: if new_amount < 0 { 0 } else { new_amount },

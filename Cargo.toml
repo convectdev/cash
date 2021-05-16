@@ -3,7 +3,7 @@ name = "cash"
 version = "0.1.2"
 authors = ["Rusu Traian Cristian <rusutraiancristian@gmail.com>"]
 edition = "2018"
-description = "An immutable currency exchange library written in Rust."
+description = "An immutable library to create, calculate, format and exchange currency."
 license = "MIT"
 
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
