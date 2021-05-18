@@ -5,10 +5,8 @@ pub struct Cash {
 
 pub trait CashOps {
     fn create_cash(currency: &str, amount: i64) -> Self;
-    fn add(&self, amount: i64) -> Self;
-    fn subtract(&self, amount: i64) -> Self;
-    fn multiply(&self, amount: i64) -> Self;
-    fn divide(&self, amount: i64) -> Self;
+    fn get_currency(&self) -> String;
+    fn get_amount(&self) -> i64;
 }
 
 impl CashOps for Cash {
@@ -19,32 +17,11 @@ impl CashOps for Cash {
         }
     }
 
-    fn add(&self, amount: i64) -> Self {
-        let new_amount: i64 = &self.amount + amount;
-        Self {
-            currency: String::from(&self.currency),
-            amount: new_amount,
-        }
+    fn get_currency(&self) -> String {
+        String::from(&self.currency)
     }
-    fn subtract(&self, amount: i64) -> Self {
-        let new_amount: i64 = &self.amount - amount;
-        Self {
-            currency: String::from(&self.currency),
-            amount: if new_amount < 0 { 0 } else { new_amount },
-        }
-    }
-    fn multiply(&self, amount: i64) -> Self {
-        let new_amount: i64 = &self.amount * amount;
-        Self {
-            currency: String::from(&self.currency),
-            amount: new_amount,
-        }
-    }
-    fn divide(&self, amount: i64) -> Self {
-        let new_amount: i64 = &self.amount / amount;
-        Self {
-            currency: String::from(&self.currency),
-            amount: if new_amount < 0 { 0 } else { new_amount },
-        }
+
+    fn get_amount(&self) -> i64 {
+        self.amount
     }
 }

@@ -1,8 +1,10 @@
 mod helpers;
 use helpers::create::*;
+use helpers::calculate::*;
 
 fn main() {
-    let cash = Cash::create_cash("usd", 17500).add(700).add(1000);
-    let new_cash = cash.add(2000).add(89000).subtract(87000).subtract(4001).multiply(2).divide(4);
-    println!("{} {}", cash.amount, new_cash.amount);
+   
+
+    let mata = Cash::create_cash("usd", 12000).add(500).subtract(2200).multiply(3).subtract(900).divide(2);
+    println!("you have {} {}", mata.get_amount(), mata.get_currency());
 }
