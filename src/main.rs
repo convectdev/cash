@@ -3,6 +3,15 @@ use helpers::create::*;
 use helpers::calculate::*;
 
 fn main() {
-    let mata = Cash::create_cash("usd", 12000).add(500).subtract(2200).multiply(3).subtract(900).divide(2);
-    println!("you have {} {}", mata.get_amount(), mata.get_currency());
+    let _start_here = Cash {
+        currency: String::from("eur"),
+        amount: 3400,
+    };
+
+    let another = Cash::create_cash(String::from("ursu"), 20000000).subtract(1).get_currency();
+    println!("you have {}", another);
 }
+
+
+
+
